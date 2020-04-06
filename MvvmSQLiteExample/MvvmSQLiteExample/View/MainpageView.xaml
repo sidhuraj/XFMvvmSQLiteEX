@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MvvmSQLiteExample.View.MainpageView">
+
+    <StackLayout>
+        <Entry Text="{Binding etempname}" Placeholder="enter the usearname"/>
+        <Entry Text="{Binding etempaddress}" Placeholder="enter employee name"/>
+
+        <StackLayout Orientation="Horizontal">
+        <Button Command="{Binding btnlogin}" Text="login"/>
+        </StackLayout>
+        <ListView ItemsSource="{Binding lstemplist}"  HasUnevenRows="True" SelectedItem="{Binding lstitems,Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Emplname }" FontSize="Default"/>
+                                <Label Text="{Binding EmplAddress}" FontSize="Default"/>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
